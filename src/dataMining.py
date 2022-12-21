@@ -35,8 +35,8 @@ class DataMining(object):
 
         for id in IDArray:
 
-            with self.lock:
-                print('\t ID =', id)
+            # with self.lock:
+                # print('\t ID =', id)
 
             try:
                 responseEN = requests.get(self.openCriticURL + f'{id}/reviews')
@@ -320,6 +320,8 @@ class DataMining(object):
 
     def main(self):
 
+        print(f'\n\t Данные скачиваются в этот файл: {self.dataPath}')
+
         parts = self.threads
 
         idArrays = [list(range(1, 14151, 1))[i::parts] for i in range(parts)]
@@ -344,6 +346,8 @@ class DataMining(object):
 
         with open(self.datapath, 'w', encoding = 'utf-8') as file:
             json.dump(dataJSON, file, indent = 4, ensure_ascii = False, separators = (',', ': '))
+        
+        print('\n\t Ура!!! Данные успешно скачались')
 
         return
 
