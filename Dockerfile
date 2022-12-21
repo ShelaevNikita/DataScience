@@ -1,6 +1,4 @@
-FROM ubuntu
-RUN apt-get update
-RUN apt-get install -y ruby ruby-dev ruby-bundler
+# FROM ubuntu
 
 FROM python:3.7-slim AS compile-image
 RUN apt-get update
@@ -18,8 +16,7 @@ COPY --from=compile-image /opt/venv /opt/venv
 COPY OpenCritic.py 
 COPY src/dataMining.py
 COPY src/plotResults.py
-COPY src/dataAnalytics.rb
-RUN bundle install .
+COPY src/dataAnalytics.py .
 
 ENV PATH="/opt/venv/bin:$PATH"
 CMD ['python3', '-u', 'OpenCritic.py']

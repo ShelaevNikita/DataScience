@@ -128,7 +128,8 @@ class PlotResults():
 
                 highestScored = self.highestScored(resultJSON)
 
-                fig = px.histogram(highestScored, x = 'Game', y = 'Score', title = 'Игры с самым высоким рейтингом')
+                fig = px.histogram(highestScored, x = 'Game', y = 'Score', title = 'Игры с самым высоким рейтингом (Top-15)',
+                                   )
                 fig.update_layout(xaxis_title = 'Название игры', yaxis_title = 'Рейтинг')
 
             elif filter == self.FilterKeys[4]:
@@ -144,7 +145,7 @@ class PlotResults():
                 highReviewed = self.highReviewed(resultJSON)
 
                 fig = px.histogram(highReviewed, x = 'Game', y = 'Reviews',
-                                   title = 'Игры с самым большим количеством отзывов')
+                                   title = 'Игры с самым большим количеством отзывов (Top-15)')
                 fig.update_layout(xaxis_title = 'Название игры', yaxis_title = 'Количество отзывов')
 
             fig.update_layout(title_x = 0.5, autosize = False, width = 1500, height = 700)
