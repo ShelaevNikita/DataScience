@@ -1,0 +1,32 @@
+
+# Cache
+__pycache__/
+
+# Distribution / packaging
+.vs/
+*.pyproj
+*.sln
+build/
+dist/
+lib/
+parts/
+var/
+wheels/
+
+# Unit test
+.cache
+.pytest_cache/
+
+# Environments
+.env
+.venv
+env/
+venv/
+env.bak/
+venv.bak/
+
+# Logs
+*.log
+
+# JSON
+*.json
